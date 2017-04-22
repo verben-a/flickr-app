@@ -23,13 +23,13 @@ angular.module('MyApp', [])
 				params: params            	
             }).then(function(response){
             	console.log('there');
-            	vm.results = response.data.photos.photo;            	
+            	// vm.results = response.data.photos.photo;            	
             	console.log('there');
             	for (var i = 0; i < response.data.photos.photo.length; i++){
-            		console.log('here')
             		var photo = response.data.photos.photo[i]
+            		console.log('photo', photo);
             		var url = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server + "/" + photo.id + "_" + photo.secret + ".jpg"
-            		console.log(url);
+            		// console.log(url);
             		vm.results.push(url);
             	}
             	console.log(response)
