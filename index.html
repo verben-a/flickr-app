@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flickr App</title>
+    <link rel="stylesheet" src="styles.css">
+    <script data-require="angular.js@1.5.6" data-semver="1.5.6" src="https://code.angularjs.org/1.5.6/angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+  <main>
+    <div>
+      <h1>Flickr Searcher</h1>
+      <p>Search for Flickr images by keyword</p>
+    </div>
+    <div ng-controller="MyController as vm">
+
+    <!-- <img src="https://farm3.staticflickr.com/2824/34120774006_e2d6269da7.jpg"> -->
+
+      <form ng-submit="vm.searchFlickr(vm.keyword)">
+        <input type="text" name="keyword" ng-model="vm.keyword" required/>
+        <input type="submit" value="Submit" id="submit" />
+      </form>
+      <div class="results" ng-if="vm.results">
+        <h2>We found {{ vm.results.length }} results for {{ vm.keyword }}</h2>
+        <div ng-repeat="result in vm.results">
+          <img src= {{ result }}/>
+        </div>
+      </div>
+    </div>
+    </main>
+  </body>
+
+</html>
+
